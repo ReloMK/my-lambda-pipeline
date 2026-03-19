@@ -9,4 +9,3 @@ def test_handler():
     print("✅ Test passed!")
 
 test_handler()
-```

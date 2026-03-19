@@ -8,7 +8,7 @@ def lambda_handler(event, context):
             "Content-Type": "application/json"
         },
         "body": json.dumps({
-            "message": "Hello from Function 2 - updated!",
+            "message": "Hello from Function 2 - fixed!",
             "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         })
     }

@@ -32,7 +32,7 @@ jobs:
           CHANGED=$(git diff --name-only HEAD~1 HEAD)
           if echo "$CHANGED" | grep -q "functions/function-1"; then
             echo "Deploying function-1..."
-            zip deployment.zip functions/function-1/lambda_function.py
+            cd functions/function-1 && zip ../../deployment.zip lambda_function.py && cd ../..
             aws lambda update-function-code --function-name my-pipeline-lambda --zip-file fileb://deployment.zip
             echo "function-1 deployed!"
           else
@@ -56,7 +56,7 @@ jobs:
           CHANGED=$(git diff --name-only HEAD~1 HEAD)
           if echo "$CHANGED" | grep -q "functions/function-3"; then
             echo "Deploying function-3..."
-            zip deployment.zip functions/function-3/lambda_function.py
+            cd functions/function-3 && zip ../../deployment.zip lambda_function.py && cd ../..
             aws lambda update-function-code --function-name my-pipeline-function-3 --zip-file fileb://deployment.zip
             echo "function-3 deployed!"
           else

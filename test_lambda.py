@@ -5,7 +5,7 @@ def test_handler():
     response = lambda_handler({}, {})
     body = json.loads(response["body"])
     assert response["statusCode"] == 200
-    assert body["message"] == "Hello from my CI/CD pipeline!"
+    assert body["message"] == "Hello from my CI/CD pipeline - version 2!"
     print("Test passed!")
 
 test_handler()

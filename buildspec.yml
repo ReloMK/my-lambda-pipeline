@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.12
+    commands:
+      - pip install -r requirements.txt
+
+  build:
+    commands:
+      - python test_lambda.py
+      - zip deployment.zip lambda_function.py
+
+  post_build:
+    commands:
+      - aws lambda update-function-code --function-name my-pipeline-lambda --zip-file fileb://deployment.zip
+
+artifacts:
+  files:
+    - deployment.zip

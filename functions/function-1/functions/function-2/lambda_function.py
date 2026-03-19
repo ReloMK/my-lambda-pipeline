@@ -5,7 +5,7 @@ def lambda_handler(event, context):
     return {
         "statusCode": 200,
         "body": json.dumps({
-            "message": "Hello from Function 2 - updated!",
+            "message": "Hello from Function 3!",
             "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         })
     }
